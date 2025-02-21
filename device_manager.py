@@ -25,7 +25,7 @@ class DeviceManager:
         """读取并发送数据"""
         while self.running:
             try:
-                if self.modbus_device.connected :
+                if self.modbus_device.client.connected :
                     data = await self.modbus_device.read_data(
                         self.config['modbus']['read_address'],
                         self.config['modbus']['register_count']
